@@ -1,0 +1,26 @@
+.posts.index.main.content {
+    max-width: 960px;
+}
+
+.posts.index.main.content > .ui.content {
+    float: left;
+    width: 80%;
+}
+
+.posts.index.main.content > .ui.header {
+    margin-top: 80px;
+    float: left;
+    width: 20%;
+}
+
+.posts.index.main.content > .ui.content > .summary {
+    text-align: justify;
+    width: 95%;
+}
+
+.posts.index.main.content > .ui.content > .author,
+.posts.index.main.content > .ui.content > .date {
+    color: #333333;
+    float: left;
+    margin-top: 0;
+}

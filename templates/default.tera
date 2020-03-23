@@ -3,22 +3,29 @@
 <head>
     {% block head %}
     <link rel="stylesheet" href="/common.css"/>
-    <link rel="stylesheet" href="/semantic.css"/>
     <link rel="stylesheet" href="/prism.css"/>
-    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
+    {% block css %}{% endblock css %}
+    <title>{{title}}</title>
     {% endblock head %}
 </head>
 <body>
 <nav>
     {% block nav %}
     <div class="ui secondary menu" style="margin-left: 5px">
-        <a class="active item" href="/">
+        <a class="{% if localisation == 'home' %}active{% endif %} item" href="/">
             Home
         </a>
-        <a class=" item" href="/posts">
+        <a class="{% if localisation == 'articles' %}active{% endif %} item" href="/posts">
             Articles
         </a>
-        <a class=" item" href="/me">
+        <a class="{% if localisation == 'publications' %}active{% endif %} item" href="/publications">
+            Publications
+        </a>
+        <a class="{% if localisation == 'courses' %}active{% endif %} item" href="/courses">
+            Cours [fr]
+        </a>
+        <a class="{% if localisation == 'me' %}active{% endif %} item" href="/me">
             Me
         </a>
         <div class="right menu">
@@ -29,19 +36,25 @@
     </div>
     {% endblock nav %}
 </nav>
-{% block content %}{% endblock content %}
+<div style="padding: 10px">
+    {% block content %}{% endblock content %}
+</div>
+<div style="clear: both"></div>
 <div id="footer">
     {% block footer %}
     {% endblock footer %}
 </div>
 
-<script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.8.0/viz.js"></script>
+<script type="text/javascript" src="/libs/mathjax/tex-chtml.js"></script>
+<script type="text/javascript" src="/libs/jquery.js"></script>
+<script type="text/javascript" src="/libs/d3.min.js"></script>
 
 <script src="/semantic.js"></script>
 <script src="/common.js"></script>
 <script src="/prism.js"></script>
+
+{% block scripts %}
+{% endblock scripts %}
+
 </body>
 </html>

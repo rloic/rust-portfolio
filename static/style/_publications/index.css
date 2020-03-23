@@ -1,3 +1,7 @@
+.publications.main.content {
+    max-width: 960px;
+}
+
 .publications.main.content > .reference > h4 {
     font-size: 1.1rem;
 }

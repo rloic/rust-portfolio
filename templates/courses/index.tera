@@ -1,0 +1,17 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/_courses/index.css">
+{% endblock css %}
+{% block content %}
+<div class="courses index main content">
+    <h2>Cours [fr]</h2>
+    {% for category, courses in course_categories %}
+        <h3>{{ category }}</h3>
+        {% for course in courses %}
+        <div class="ui content">
+            <h3>- <a href="/courses/{{course.slug}}">{{ course.title }}</a></h3>
+        </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock content %}

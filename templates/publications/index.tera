@@ -1,0 +1,17 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/_publications/index.css">
+{% endblock css %}
+{% block content %}
+<div class="publications index main content">
+    <h2>Publications</h2>
+    {% for publication in publications %}
+    <div class="reference">
+        <h4><span style="font-variant: small-caps">{% for author in publication.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}</span>
+            (2019). <a href="/publications/{{publication.slug}}">{{ publication.title }}</a>.<br />
+            Titre de la conférence, Date de la conférence, Lieu de la conférence.
+        </h4>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

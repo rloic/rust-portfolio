@@ -1,0 +1,77 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/index.css">
+{% endblock css %}
+{% block content %}
+<div class="index main content">
+    <div class="section posts">
+        <div class="ui header">
+            <h2>Last Post</h2>
+            <h5><a href="/posts">See other posts</a></h5>
+        </div>
+        <div class="ui content">
+            <h3><a href="/posts/{{last_post.slug}}">{{ last_post.title }}</a></h3>
+            <p class="date">Last update on {{ last_post.publication_date | date }} by</p>
+            <p class="author">
+                {% for author in last_post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+            </p>
+            <p class="abstract">{{ last_post.long_summary | truncate(length=400) }}</p>
+            <div>{% for tag in last_post.tags | sort %}<span class="tag">{{tag}}</span>{% endfor %}</div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="section courses">
+        <div class="ui header">
+            <h2>Last courses [fr]</h2>
+            <h5><a href="/courses">See all courses</a></h5>
+        </div>
+        <div class="ui content">
+            {% for category, courses in course_categories %}
+            <h3>{{ category }}</h3>
+            {% for course in courses %}
+            <div>
+                <h4>> <a href="/courses/{{ course.slug }}">{{ course.title }}</a></h4>
+                <p class="date">Last update on {{ course.publication_date | date }}</p>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    {% if projects | length > 0 %}
+    <div class="section">
+        <h2>Projects</h2>
+        {% for project in projects %}
+        <div class="card">
+            <h3>Title</h3>
+            <h5 class="sub-header">
+                Subtitle
+            </h5>
+            <p class="content">
+                This is the content
+            </p>
+            <div>
+                <span class="tag">Tag</span>
+            </div>
+        </div>
+        {% endfor %}
+        <div style="clear: both"></div>
+    </div>
+    {% endif %}
+    <div class="section publications">
+        <h2>Publications</h2>
+        {% for publication in publications %}
+        <div class="article">
+            <p class="summary">
+                Développement d'une contrainte globale abstractXOR pour résoudre des problèmes de cryptanalyse sur les
+                algorithmes de chiffrement AES et Midori
+            </p>
+            <h3><span style="font-variant: small-caps">{% for author in publication.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}</span>
+                (2019). <a href="/publications/{{publication.slug}}">{{ publication.title }}</a>.<br/>
+                Titre de la conférence, Date de la conférence, Lieu de la conférence.
+            </h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

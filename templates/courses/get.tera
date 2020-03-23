@@ -1,18 +1,25 @@
 {% extends "default" %}
 {% block css %}
-<link rel="stylesheet" href="/_posts/get.css">
+<link rel="stylesheet" href="/_courses/get.css">
 {% endblock css %}
 {% block content %}
-<div class="posts get main content">
-    <div class="header">
-        <h1 class="main title">{{ post.title }}</h1>
-        <h2 class="main sub-header">{{ post.long_summary }}</h2>
-        <h3 class="author">
-            {% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
-        </h3>
-        <h3 class="date">Last update on {{ post.publication_date | date }}</h3>
+<div class="courses get main content">
+    {% if chapters | length > 0 %}
+    <div class="vertical menu">
+        <a class="element active" href="/courses/{{ course.slug }}">Main</a>
+        {% for chapter in chapters %}
+            <a class="element" href="/courses/{{ course.slug }}/{{ chapter.slug }}">{{ chapter.title }}</a>
+        {% endfor %}
     </div>
-    <div class="post content">
+    {% endif %}
+    <div class="header">
+        <h1 class="main title">{{ course.title }}</h1>
+        <h3 class="author">
+            {% for author in course.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+        </h3>
+        <h3 class="date">Last update on {{ course.publication_date | date }}</h3>
+    </div>
+    <div class="course content">
         {{ content }}
     </div>
 </div>
@@ -24,12 +31,12 @@
 <script>
     window.onload = () => {
         const workerURL = '/libs/viz/full.render.js';
-        let viz = new Viz({ workerURL });
+        let viz = new Viz({workerURL});
 
         let graphs = document.getElementsByClassName("language-viz");
-        for(let i = 0; i < graphs.length; i++) {
+        for (let i = 0; i < graphs.length; i++) {
             let graph = graphs[i];
-            viz.renderSVGElement(graph.innerText).then(function(element) {
+            viz.renderSVGElement(graph.innerText).then(function (element) {
                 element.style.width = "100%";
                 graph.innerText = "";
                 graph.appendChild(element);

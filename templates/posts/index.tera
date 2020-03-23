@@ -1,0 +1,23 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/_posts/index.css">
+{% endblock css %}
+{% block content %}
+<div class="posts index main content">
+    <h2>Articles</h2>
+    {% for post in posts %}
+    <div class="ui content">
+        <h3><a href="/posts/{{post.slug}}">{{ post.title }}</a></h3>
+        <p class="summary">{{ post.long_summary }}</p>
+        <p class="date">Last update on {{ post.publication_date | date }} by </p>
+        <p class="author">&nbsp;{% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}</p>
+        <div style="clear: both">{% for tag in post.tags | sort %}<span class="tag">{{tag}}</span>{% endfor %}</div>
+    </div>
+    <div class="ui header">
+        {% if post.icon %}
+        <img src="{{post.icon}}" alt="">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

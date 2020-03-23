@@ -1,24 +1,29 @@
-.posts.get.main.content > .header {
-    margin: 0 auto 20px auto;
-    width: 100%;
+.publications.get.main.content {
     max-width: 960px;
+}
+
+.publications.get.main.content > .header {
+    margin: 0 auto 20px auto;
     border-bottom: 1px solid #333333;
     padding-bottom: 20px;
 }
 
-.posts.get.main.content > .header > h1.main.title {
+.publications.get.main.content > .header > h1.main.title {
     text-align: center;
 }
 
-.posts.get.main.content > .header > h2.main.sub-header {
+.publications.content > h1 {
+    font-size: 2.4rem;
+}
+
+.publications.content > h2.main.sub-header {
     font-size: 1.2rem;
     line-height: calc(1.2rem + 8px);
-    font-family: 'PT Sans';
     text-align: justify;
 }
 
-.posts.get.main.content > .header > h3.author,
-.posts.get.main.content > .header > h3.date {
+.publications.get.main.content > .header > h3.author,
+.publications.get.main.content > .header > h3.date {
     display: inline-block;
     text-align: right;
     font-size: 1.2rem;
@@ -30,17 +35,17 @@
     font-weight: bold;
 }
 
-.posts.get.main.content > div.post.content {
+.publications.get.main.content > div.post.content {
     max-width: 880px;
     margin: auto;
 }
 
-.posts.get.main.content table {
+.publications.get.main.content table {
     width: 100%;
     background-color: white;
 }
 
-.posts.get.main.content table {
+.publications.get.main.content table {
     width: 100%;
     background-color: white;
     border-spacing: 0;
@@ -49,36 +54,53 @@
     color: #262727;
 }
 
-.posts.get.main.content table > thead > tr > th,
-.posts.get.main.content table > tbody > tr > td {
+.publications.get.main.content table > thead > tr > th,
+.publications.get.main.content table > tbody > tr > td {
     border-right: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
 }
 
-.posts.get.main.content table > thead > tr > th {
+.publications.get.main.content table > thead > tr > th {
     background-color: #f9fafb;
 }
-.posts.get.main.content table > tbody > tr:nth-child(2n) > td {
+.publications.get.main.content table > tbody > tr:nth-child(2n) > td {
     background-color: #fafafb;
 }
 
 
-.posts.get.main.content table > tbody > tr:last-child > td {
+.publications.get.main.content table > tbody > tr:last-child > td {
     border-bottom: 0;
 }
 
-.posts.get.main.content table > thead > tr > th:last-child,
-.posts.get.main.content table > tbody > tr > td:last-child {
+.publications.get.main.content table > thead > tr > th:last-child,
+.publications.get.main.content table > tbody > tr > td:last-child {
     border-right: 0;
 }
 
-.posts.get.main.content table > thead > tr > th {
+.publications.get.main.content table > thead > tr > th {
     font-family: 'PT Sans';
     font-size: 1.1rem;
     padding: 8px 10px;
 }
 
-.posts.get.main.content table > tbody > tr > td {
+.publications.get.main.content table > tbody > tr > td {
     padding: 6px 8px;
     border-right: 1px solid #dedede;
+}
+
+.publications.get.main.content > .header > .resources {
+    clear: both;
+    margin-top: 20px;
+}
+
+.publications.get.main.content > .header > .resources > .tag {
+    font-size: 1rem;
+    padding: 8px 10px;
+}
+
+.publications.get.main.content > .header > .resources > .tag > i {
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+    font-size: 1.3rem;
 }

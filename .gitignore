@@ -1,0 +1,11 @@
+# Ignore build
+/target
+
+# Ignore idea files
+.idea
+
+# Ignore content folders
+content/courses/*
+content/posts/*
+content/projects/*
+content/publications/*

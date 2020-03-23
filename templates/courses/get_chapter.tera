@@ -1,0 +1,46 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/_courses/get_chapter.css">
+{% endblock css %}
+{% block content %}
+<div class="courses get_chapter main content">
+    <div class="vertical menu">
+        <a class="element" href="/courses/{{ course.slug }}">Main</a>
+        {% for chap in chapters %}
+        <a class="element {% if chap.slug == chapter.slug %}active{% endif %}" href="/courses/{{ course.slug }}/{{ chap.slug }}">{{ chap.title }}</a>
+        {% endfor %}
+    </div>
+    <div class="header">
+        <h1 class="main title">{{ course.title }}</h1>
+        <h3 class="author">
+            {% for author in course.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+        </h3>
+        <h3 class="date">Last update on {{ course.publication_date | date }}</h3>
+    </div>
+    <div class="course content">
+        {{ content }}
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script type="text/javascript" src="/libs/viz.js"></script>
+<script type="text/javascript" src="/libs/viz/full.render.js"></script>
+
+<script>
+    window.onload = () => {
+        const workerURL = '/libs/viz/full.render.js';
+        let viz = new Viz({ workerURL });
+
+        let graphs = document.getElementsByClassName("language-viz");
+        for(let i = 0; i < graphs.length; i++) {
+            let graph = graphs[i];
+            viz.renderSVGElement(graph.innerText).then(function(element) {
+                element.style.width = "100%";
+                graph.innerText = "";
+                graph.appendChild(element);
+            });
+        }
+    }
+
+</script>
+{% endblock scripts %}

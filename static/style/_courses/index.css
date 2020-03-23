@@ -1,0 +1,7 @@
+.courses.index.main.content {
+    max-width: 960px;
+}
+
+.courses.index.main.content > .ui.content > h3 {
+    font-size: 1.2rem;
+}

@@ -1,19 +1,41 @@
 {% extends "default" %}
-{% block title %}Index{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="/_posts/get.css">
+{% endblock css %}
 {% block content %}
-<div class="content">
-    <h2>Articles</h2>
-    <div class="ui content">
-        {% for post in posts %}
-        <div>
-            <h3><a href="/posts/{{post.slug}}">{{ post.title }}</a></h3>
-            <p>{{ post.summary }}</p>
-            <p class="author">{% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{%
-                endfor %}</p>
-            <p class="date">Last update on May 30, 2019</p>
-            <div>{% for tag in post.tags %}<span class="tag">{{tag}}</span>{% endfor %}</div>
-        </div>
-        {% endfor %}
+<div class="posts get main content">
+    <div class="header">
+        <h1 class="main title">{{ post.title }}</h1>
+        <h2 class="main sub-header">{{ post.long_summary }}</h2>
+        <h3 class="author">
+            {% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+        </h3>
+        <h3 class="date">Last update on {{ post.publication_date | date }}</h3>
+    </div>
+    <div class="post content">
+        {{ content }}
     </div>
 </div>
 {% endblock content %}
+{% block scripts %}
+<script type="text/javascript" src="/libs/viz.js"></script>
+<script type="text/javascript" src="/libs/viz/full.render.js"></script>
+
+<script>
+    window.onload = () => {
+        const workerURL = '/libs/viz/full.render.js';
+        let viz = new Viz({ workerURL });
+
+        let graphs = document.getElementsByClassName("language-viz");
+        for(let i = 0; i < graphs.length; i++) {
+            let graph = graphs[i];
+            viz.renderSVGElement(graph.innerText).then(function(element) {
+                element.style.width = "100%";
+                graph.innerText = "";
+                graph.appendChild(element);
+            });
+        }
+    }
+
+</script>
+{% endblock scripts %}

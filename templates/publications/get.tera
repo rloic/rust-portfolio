@@ -1,19 +1,24 @@
 {% extends "default" %}
 {% block css %}
-<link rel="stylesheet" href="/_posts/get.css">
+<link rel="stylesheet" href="/_publications/get.css">
 {% endblock css %}
 {% block content %}
-<div class="posts get main content">
+<div class="publications get main content">
     <div class="header">
-        <h1 class="main title">{{ post.title }}</h1>
-        <h2 class="main sub-header">{{ post.long_summary }}</h2>
+        <h1 class="main title">{{ publication.title }}</h1>
         <h3 class="author">
-            {% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+            {% for author in publication.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
         </h3>
-        <h3 class="date">Last update on {{ post.publication_date | date }}</h3>
+        <h3 class="date">Last update on {{ publication.publication_date | date }}</h3>
+        <div class="resources">
+            {% for resource in publication.resources %}
+                <a class="tag" href="{{ resource.url }}">{% if resource.icon %}<i class="{{ resource.icon }}"></i>{% endif %} {{ resource.name }}</a>
+            {% endfor %}
+        </div>
     </div>
-    <div class="post content">
-        {{ content }}
+    <div class="publications content">
+        <h1>Abstract</h1>
+        <h2 class="main sub-header">{{ content }}</h2>
     </div>
 </div>
 {% endblock content %}

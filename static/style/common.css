@@ -1,165 +1,121 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "PT Sans";
+    src: url("/fonts/PTSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url("/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato-Regular.ttf") format("truetype");
+}
+
+*:focus {
+    outline: none;
+}
+
 body {
-    background-color: #f5f5f5;
+    background-color: white;
     font-family: 'Open Sans';
     font-size: 16px;
-}
-
-h1 {
-    font-size: 2rem;
-}
-
-h2 {
-    font-size: 1.8rem;
-}
-
-h3 {
-    font-size: 1.6rem;
-}
-
-h4 {
-    font-size: 1.4rem;
-}
-
-h5 {
-    font-size: 1.2rem;
-}
-
-h6 {
-    font-size: 1rem;
-}
-
-h1, h2 {
-    font-family: 'PT Sans' !important;
-}
-
-h3, h4 {
-    font-family: 'PT Sans' !important;
-}
-
-h1.sub, h2.sub, h5, h6 {
-    font-family: 'Roboto Condensed' !important;
-}
-
-p {
-    font-size: 1.2rem;
-}
-
-:not(pre) > code {
-    font-size: 95%;
-    padding: 1px 4px;
-    background-color: #f5f5f5;
-    border: 1px solid #f0f0f0;
-    border-radius: 4px;
-}
-
-code {
-    font-family: 'FiraCode-Regular' !important;
-    font-feature-settings: "calt" 1;  /* Enable ligatures for IE 10+, Edge */
-    text-rendering: optimizeLegibility; /* Force ligatures for Webkit, Blink, Gecko */
+    margin: 0;
+    padding-bottom: 20px;
 }
 
 a {
-    outline: none !important;
+    text-decoration: none;
+    color: #4183C4;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Lato;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+    font-variant: small-caps;
+}
+
+a, nav {
+    font-family: "Lato";
 }
 
 nav {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    z-index: 1;
     width: 100%;
+    background-color: white;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 0 10px #e5e5e5;
 }
 
 nav .item {
-    color: white !important;
+    font-size: 0.9rem;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 10px 16px;
+    color: black;
+    margin: 10px;
 }
 
-nav a.active.item {
-    background-color: #303030 !important;
-}
-nav a.item:hover {
-    background-color: #3a3a3a !important;
+nav .item.active, nav .item:hover {
+    background-color: #eee;
 }
 
-.content {
-    width: 100%;
-    margin: auto;
+nav .right.menu {
+    float: right;
 }
 
-.index-background {
-    min-height: 400px;
-    background: url("img/background.jpg") center !important;
-}
-
-.index-background .ui.inverted.header {
-    margin-top: 100px;
-}
-
-.thin bold {
-    font-weight: bold;
-}
-
-.thin {
-    font-weight: normal;
-}
-
-.main {
-    min-width: 400px !important;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid #f0f0f0;
-    margin-top: 80px !important;
-}
-
-.eighty-percent {
-    max-width: 864px;
-    min-width: 80%;
-    margin: auto;
-}
-
-.ninety-five-percent {
-    max-width: 1020px;
-    min-width: 95%;
-    margin: auto;
-}
-
-.seventy-percent {
-    max-width: 756px;
-    min-width: 70%;
-    margin: auto;
-}
-
-.padding-twenty {
-    padding: 20px !important;
-}
-
-.padding-fourty {
-    padding: 40px !important;
-}
-
-.padding-sixty {
-    padding: 60px !important;
-}
-
-.ninety-percent {
-    width: 90%;
-    margin: auto;
-}
-
-.graph {
-    width: 100%;
-}
-
-.graph > img {
-
-    margin-left: auto;
-    margin-right: auto;
+nav .right.menu::after {
+    content: "";
     display: block;
-    vertical-align: center;
-
+    clear: both;
 }
 
-.ui.label {
-    margin-top: 2px;
-    margin-bottom: 2px;
+nav .right.menu > .ui.item {
+    font-size: 1.1rem;
+}
+
+nav .right.menu > .ui.item:hover {
+    background-color: white;
+}
+
+.main.content {
+    width: 80%;
+    margin: auto;
+}
+
+.tag {
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-family: 'Lato';
+    font-size: 0.9rem;
+    background-color: #e5e5e5;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+pre.language-viz {
+    background-color: white !important;
+    border: 0 !important;
 }

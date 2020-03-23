@@ -1,0 +1,108 @@
+.courses.get.main.content > .header {
+    margin: 0 auto 20px auto;
+    width: 58%;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 20px;
+}
+
+.courses.get.main.content > .header > h1.main.title {
+    text-align: center;
+}
+
+.courses.get.main.content > .header > h2.main.sub-header {
+    font-size: 1.2rem;
+    line-height: calc(1.2rem + 8px);
+    font-family: 'PT Sans';
+    text-align: justify;
+}
+
+.courses.get.main.content > .header > h3.author,
+.courses.get.main.content > .header > h3.date {
+    display: inline-block;
+    text-align: right;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    width: calc(100% - 20px);
+    margin: auto;
+    font-family: 'PT Sans';
+    color: #969896;
+    font-weight: bold;
+}
+
+.courses.get.main.content > div.course.content {
+    width: 62%;
+    margin: auto;
+}
+
+.courses.get.main.content table {
+    width: 100%;
+    background-color: white;
+}
+
+.courses.get.main.content table {
+    width: 100%;
+    background-color: white;
+    border-spacing: 0;
+    border-radius: 3px;
+    border: 1px solid rgba(34,36,38,.15);
+    color: #262727;
+}
+
+.courses.get.main.content table > thead > tr > th,
+.courses.get.main.content table > tbody > tr > td {
+    border-right: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+}
+
+.courses.get.main.content table > thead > tr > th {
+    background-color: #f9fafb;
+}
+.courses.get.main.content table > tbody > tr:nth-child(2n) > td {
+    background-color: #fafafb;
+}
+
+.courses.get.main.content table > tbody > tr:last-child > td {
+    border-bottom: 0;
+}
+
+.courses.get.main.content table > thead > tr > th:last-child,
+.courses.get.main.content table > tbody > tr > td:last-child {
+    border-right: 0;
+}
+
+.courses.get.main.content table > thead > tr > th {
+    font-family: 'PT Sans';
+    font-size: 1.1rem;
+    padding: 8px 10px;
+}
+
+.courses.get.main.content table > tbody > tr > td {
+    padding: 6px 8px;
+    border-right: 1px solid #dedede;
+}
+
+.courses.get.main.content > .course.content img {
+    margin: auto;
+    display: block;
+}
+
+.courses.get.main.content > .vertical.menu {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    float: left;
+    font-family: Lato;
+}
+
+.courses.get.main.content > .vertical.menu > .element {
+    display: block;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    color: #333333;
+}
+
+.courses.get.main.content > .vertical.menu > .element.active,
+.courses.get.main.content > .vertical.menu > .element:hover {
+    background-color: #f2f2f2;
+}
