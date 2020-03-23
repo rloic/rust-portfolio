@@ -1,0 +1,41 @@
+{% extends "default" %}
+{% block css %}
+<link rel="stylesheet" href="/_posts/get.css">
+{% endblock css %}
+{% block content %}
+<div class="posts get main content">
+    <div class="header">
+        <h1 class="main title">{{ post.title }}</h1>
+        <h2 class="main sub-header">{{ post.long_summary }}</h2>
+        <h3 class="author">
+            {% for author in post.authors %}{% if loop.index != 1 %}, {% endif %}{{ author }}{% endfor %}
+        </h3>
+        <h3 class="date">Last update on {{ post.publication_date | date }}</h3>
+    </div>
+    <div class="post content">
+        {{ content }}
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script type="text/javascript" src="/libs/viz.js"></script>
+<script type="text/javascript" src="/libs/viz/full.render.js"></script>
+
+<script>
+    window.onload = () => {
+        const workerURL = '/libs/viz/full.render.js';
+        let viz = new Viz({ workerURL });
+
+        let graphs = document.getElementsByClassName("language-viz");
+        for(let i = 0; i < graphs.length; i++) {
+            let graph = graphs[i];
+            viz.renderSVGElement(graph.innerText).then(function(element) {
+                element.style.width = "100%";
+                graph.innerText = "";
+                graph.appendChild(element);
+            });
+        }
+    }
+
+</script>
+{% endblock scripts %}
